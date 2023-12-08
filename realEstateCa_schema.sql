@@ -1,7 +1,6 @@
 DROP TABLE IF EXISTS realEstateCa;
 
 CREATE TABLE realEstateCa (
-	index NUMERIC,
 	id	VARCHAR,
 	stateId	NUMERIC,
 	countyId NUMERIC,
