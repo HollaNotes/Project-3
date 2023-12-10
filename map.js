@@ -12,3 +12,17 @@ let myMap = L.map("map", {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(myMap);
   
+
+  // Define arrays to hold the created address marker.
+let addressMarkers = [];
+
+// Looping through the address array, create markers for each filtered address, bind a popup containing its
+// address City, Zip, bed, bath, price, yr built, and house type , and add it to the map.
+let marker_limit = 20;
+
+for (let i = 0; i < streetAddress.length; i++) {
+    let address = streetAddress[i];
+    L.marker(streetAddress.coordinates)
+      .bindPopup(`<h1>${address.streetAddress}</h1> <hr> <h3>Zip ${address.zipcode.toLocaleString()}</h3>`)
+      .addTo(myMap);
+  }
