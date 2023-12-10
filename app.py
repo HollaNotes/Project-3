@@ -36,31 +36,33 @@ app = Flask(__name__)
 # Flask Routes
 #################################################
 
-@app.route("/api/v1.0/justice-league")
-def justice_league():
-    """Return the justice league data as json"""
-
-
 
 @app.route("/")
 def welcome():
     return (
         f"PLEASE PLEASE PLEASE WORK<br/>"
         f"Available Routes:<br/>"
-        f"/api/v1.0/justice-league"
+        f"/api/v1.0/DATA"
     )
 
 
 
 
-# @app.route("/api/v1.0/")
-# def welcome():
-#     """List all available api routes."""
-#     return (
-#         f"Available Routes:<br/>"
-#         f"/api/v1.0/descriptions<br/>"
-#         f"/api/v1.0/passengers"
-#     )
+@app.route("/api/v1.0/DATA")
+def data():
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+
+    """Return a list of all passenger names"""
+    # Query all passengers
+    results = session.query(realestateca.id).all()
+
+    session.close()
+
+    # Convert list of tuples into normal list
+    realestateresults = list(np.ravel(results))
+
+    return jsonify(realestateresults)
 
 
 # @app.route("/api/v1.0/descriptions")
