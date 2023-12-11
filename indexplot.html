@@ -4,16 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Project3_Map</title>
+  <title>Project3_Map-Plotly</title>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
   <script src="https://d3js.org/d3.v7.min.js"></script>
+
 
 </head>
 <body>
   <div id="plot"></div>
   <script>
-    d3.json("Resources/JSON_filter6.json").then((data) => {
+    d3.json("C:\Users\vdumlao\Documents\GitHub\Project-3\Resources\JSON_filter6.json").then((data) => {
       //  Create the Traces
       let trace1 = {
         x: JSON_filter6.longitude,
