@@ -13,7 +13,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(myMap);
 
 // Load the data.
-const url = "https://github.com/HollaNotes/Project-3/blob/main/Resources/JSON_filter6.json";
+const url = "http://127.0.0.1:5000/";
 
 // Get the data with d3.
 d3.json(url).then(function(data) {

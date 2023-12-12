@@ -9,7 +9,7 @@ CORS(app)
 
 # Create a function to fetch data and jsonify it
 def jsonify_all_data():
-    conn = psycopg2.connect(database="realestate-ca_db", user="postgres", password="password", host="localhost", port="5432")
+    conn = psycopg2.connect(database="realestate-ca_db", user="postgres", password="postgres", host="localhost", port="5432")
     cursor = conn.cursor()
 
     cursor.execute("SELECT * FROM ca_realestate")

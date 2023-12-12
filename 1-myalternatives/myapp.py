@@ -9,8 +9,6 @@ from flask_cors import CORS
 
 import psycopg2
 
-CORS(app)
-
 #################################################
 # Database Setup
 #################################################
@@ -28,7 +26,7 @@ CA_realestate = Base.classes.ca_realestate
 # Flask Setup
 #################################################
 app = Flask(__name__)
-
+CORS(app)
 
 #################################################
 # Flask Routes
