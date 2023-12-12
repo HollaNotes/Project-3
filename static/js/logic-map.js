@@ -1,4 +1,4 @@
-// Creating our initial map object:
+  // Creating our initial map object:
 // We set the longitude, latitude, and starting zoom level.
 // This gets inserted into the div with an id of "map".
 let myMap = L.map("map", {
@@ -12,10 +12,22 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(myMap);
 
-// Load the data.
-const url = "http://127.0.0.1:5000/";
-
-// Get the data with d3.
-d3.json(url).then(function(data) {
-  console.log(data);
-});
+// Use d3 to read the JSON file.
+  d3.json("static/data/data.json").then((data) => {
+    console.log("Data: ",data); // Output the array of data
+    //Create array with Latitude and longitude
+    // let coordinates = data.map(d => [d.latitude, d.longitude]);
+    let coordinates = data.slice(0, 20).map(d => [d.latitude, d.longitude]);
+    console.log("coordinates:", coordinates); // Output the array of coordinates
+    
+    //Create Markers for addresses
+    coordinates.forEach(coord => {
+      L.marker(coord)
+      .bindPopup(`<br>${data.streetaddress}</br><br> ${data.zipcode}</br>`)
+      .addTo(myMap);
+    // coordinates.forEach(d => {
+    //   let { latitude, longitude, streetaddress } = d;
+    //   L.marker([latitude, longitude]).addTo(map)
+    //   .bindPopup(streetaddress);
+    });
+  });
