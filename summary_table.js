@@ -1,6 +1,6 @@
 const url = "https://raw.githubusercontent.com/HollaNotes/Project-3/main/users_data.json";
 
-function init() {
+function bargraph() {
     // Fetch the JSON data
     fetch(url)
         .then(response => response.json())
@@ -45,4 +45,4 @@ function init() {
         .catch(error => console.error("Error fetching data:", error));
 }
 
-init();
+bargraph();

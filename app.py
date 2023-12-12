@@ -1,7 +1,11 @@
 from flask import Flask, jsonify
 import psycopg2
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+# Enable CORS for all routes
+CORS(app)
 
 # Create a function to fetch data and jsonify it
 def jsonify_all_data():
