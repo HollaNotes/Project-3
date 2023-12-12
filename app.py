@@ -1,11 +1,16 @@
 from flask import Flask, jsonify
 import psycopg2
+from flask_cors import CORS
 
 app = Flask(__name__)
 
+# Enable CORS for all routes
+CORS(app)
+
+
 # Create a function to fetch data and jsonify it
 def jsonify_all_data():
-    conn = psycopg2.connect(database="Project 3", user="postgres", password="password", host="localhost", port="5432")
+    conn = psycopg2.connect(database="Project 3", user="postgres", password="postgres", host="localhost", port="5432")
     cursor = conn.cursor()
 
     cursor.execute("SELECT * FROM filter6")
@@ -34,7 +39,7 @@ def get_users():
     return jsonify_all_data()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=5000, debug=False)
 
 # import pandas as pd
 # import numpy as np
