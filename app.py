@@ -7,10 +7,6 @@ app = Flask(__name__)
 # Enable CORS for all routes
 CORS(app)
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4cb5e4edda93a0fba69da5f464ef4cd6334ac2f9
 # Create a function to fetch data and jsonify it
 def jsonify_all_data():
     conn = psycopg2.connect(database="Project 3", user="postgres", password="postgres", host="localhost", port="5432")

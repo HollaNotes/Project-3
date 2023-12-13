@@ -21,33 +21,13 @@
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="static/css/mapstyle.css">
 
-  <style>
-    /* Style to make the table scrollable */
-    .scrollable-table {
-      width: 100%;
-      overflow: auto;
-      max-height: 300px;
-      /* Set the max height as needed */
-    }
-
-    /* Optional: Style for the table */
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    th,
-    td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-  </style>
+  
 </head>
 
 <body>
   <div class="container">
     <div class="row">
+    <header>
       <h3>Filters</h3>
       <label for="cityDropdown">Select a City:</label>
       <select id="cityDropdown" onchange="filterAndRefreshTable()">
@@ -72,6 +52,8 @@
       <input type="number" id="bathroom-max" min="0" value="20">
 
       <button id="filter-btn">Apply</button>
+    </header>
+    
     <div class="row"></div>  
       <div class="scrollable-table" id="filteredTableContainer"></div>
     

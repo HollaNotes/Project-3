@@ -28,7 +28,7 @@ var bathroomMaxEl = initialBathroomMaxEl;
 
 
 // Store the local host as url
-let url = "https://raw.githubusercontent.com/HollaNotes/Project-3/main/users_data.json";
+let url = "http://127.0.0.1:5000/";
 
 // Function to initialize the page
 function init() {
@@ -87,14 +87,22 @@ function updateTable(filteredProperties) {
     // Clear previous content
     tableContainer.innerHTML = '';
 
+    let selectedCity = cityDropdown.value;
+
     if (filteredProperties.length === 0) {
         tableContainer.innerHTML = '<p>No properties match the criteria.</p>';
         return;
     }
 
     let table = document.createElement('table');
-    const thead = document.createElement('thead');
-    const tbody = document.createElement('tbody');
+    
+    // Set up title of the table
+    let caption = document.createElement('caption');
+    caption.textContent = `House Info Table for ${selectedCity}`; 
+    table.appendChild(caption);
+    
+    let thead = document.createElement('thead');
+    let tbody = document.createElement('tbody');
 
     // Create table headers
     const headers = ['Address', 'Price', 'Bedroom', 'Bathroom', 'House Size', 'City', 'Zip', 'Year built', 'House Type'];
@@ -195,7 +203,21 @@ function filterAndRefreshTable() {
 // Function to reset the initial values
 function resetInitialValues() {
     // Resetting initial values logic
-}
+    priceMinEl = initialPriceMinEl;
+    priceMaxEl = initialPriceMaxEl;
+    bedroomMinEl = initialBedroomMinEl;
+    bedroomMaxEl = initialBedroomMaxEl;
+    bathroomMinEl = initialBathroomMinEl;
+    bathroomMaxEl = initialBathroomMaxEl;
+
+    // Initial values
+    elPriceMin.value = initialPriceMinEl;
+    elPriceMax.value = initialPriceMaxEl;
+    elBedroomMin.value= initialBedroomMinEl;
+    elBedroomMax.value = initialBedroomMaxEl;
+    elBathroomMin.value = initialBathroomMinEl;
+    elBathroomMax.value = initialBathroomMaxEl;
+};
 
 // Add event listener to the button
 filterBtn.addEventListener('click', function () {
