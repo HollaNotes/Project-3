@@ -19,35 +19,17 @@
     crossorigin=""></script>
 
   <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="static/css/mapstyle.css">
+  <link rel="stylesheet" type="text/css" href="static/css/style.css">
 
-  <style>
-    /* Style to make the table scrollable */
-    .scrollable-table {
-      width: 100%;
-      overflow: auto;
-      max-height: 300px;
-      /* Set the max height as needed */
-    }
-
-    /* Optional: Style for the table */
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    th,
-    td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
-  </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
+    <h1>Project 3: Californa Houses Search</h1>
+    <h2>Team: Noelle Watson, Vanessa Dumlao, Xuexuan Xu</h2>
+
+  <div class="row">
+    <div class="container"></div>
+    <header>
       <h3>Filters</h3>
       <label for="cityDropdown">Select a City:</label>
       <select id="cityDropdown" onchange="filterAndRefreshTable()">
@@ -70,17 +52,17 @@
 
       <label for="bathroom-max">Max Bathroom:</label>
       <input type="number" id="bathroom-max" min="0" value="20">
-
+   
       <button id="filter-btn">Apply</button>
+    </header>
+    
     <div class="row"></div>  
       <div class="scrollable-table" id="filteredTableContainer"></div>
+   
     
-    <div class="row">      
-      <div id="map" style="height: 400px;"></div>      
-    </div>
-    </div>  
-    <div class="row">      
-        <div id="bar"></div>    
+    <div class="widget">      
+      <div id="map" style="height: 400px;">Map Widget</div>
+      <div id="bar" style="height: 400px;">Bar Widget</div>     
     </div>
 
   </div>

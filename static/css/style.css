@@ -1,0 +1,67 @@
+h1 {
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+body {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure full viewport height */
+  margin: 2; /* Remove default body margin */
+  padding: 2;
+  font-family: Arial, sans-serif;
+}
+
+.row {
+  text-align: center; /* Optionally, align text content within container */
+  margin-bottom: 10px;
+  padding: 2px;
+}
+
+/* Style to make the table scrollable */
+.scrollable-table {
+  width: 100%;
+  overflow: auto;
+  max-height: 300px;
+  margin-bottom: 20px;
+  /* Set the max height as needed */
+}
+
+/* Optional: Style for the table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* creates grid around the table */
+/* th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+} */
+
+.widget {
+  display: flex;
+  /* Align items horizontally */
+  flex-direction: row;
+}
+
+#map, #bar {
+  /* Add styling to the containers */
+  width: 50%;
+  height: 75%;
+  margin: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  /* Additional styles can be added */
+}
