@@ -10,6 +10,12 @@ h3 {
   font-size: 32px;
 }
 
+.filterselect {
+  border: 1px black;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
 body {
   /* display: flex; */
   justify-content: center;
