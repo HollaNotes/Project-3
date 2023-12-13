@@ -1,41 +1,41 @@
-var cityDropdown = document.getElementById('cityDropdown');
-var filterBtn = document.getElementById('filter-btn');
-var tableContainer = document.getElementById('filteredTableContainer');
+let cityDropdown = document.getElementById('cityDropdown');
+let filterBtn = document.getElementById('filter-btn');
+let tableContainer = document.getElementById('filteredTableContainer');
 
 // Initial values
-var elPriceMin = document.getElementById('price-min');
-var elPriceMax = document.getElementById('price-max');
-var elBedroomMin = document.getElementById('bedroom-min');
-var elBedroomMax = document.getElementById('bedroom-max');
-var elBathroomMin = document.getElementById('bathroom-min');
-var elBathroomMax = document.getElementById('bathroom-max');
+let elPriceMin = document.getElementById('price-min');
+let elPriceMax = document.getElementById('price-max');
+let elBedroomMin = document.getElementById('bedroom-min');
+let elBedroomMax = document.getElementById('bedroom-max');
+let elBathroomMin = document.getElementById('bathroom-min');
+let elBathroomMax = document.getElementById('bathroom-max');
 
 // Initial values
-var initialPriceMinEl = parseInt(elPriceMin.value);
-var initialPriceMaxEl = parseInt(elPriceMax.value);
-var initialBedroomMinEl = parseInt(elBedroomMin.value);
-var initialBedroomMaxEl = parseInt(elBedroomMax.value);
-var initialBathroomMinEl = parseInt(elBathroomMin.value);
-var initialBathroomMaxEl = parseInt(elBathroomMax.value);
+let initialPriceMinEl = parseInt(elPriceMin.value);
+let initialPriceMaxEl = parseInt(elPriceMax.value);
+let initialBedroomMinEl = parseInt(elBedroomMin.value);
+let initialBedroomMaxEl = parseInt(elBedroomMax.value);
+let initialBathroomMinEl = parseInt(elBathroomMin.value);
+let initialBathroomMaxEl = parseInt(elBathroomMax.value);
 
 // Current values
-var priceMinEl = initialPriceMinEl;
-var priceMaxEl = initialPriceMaxEl;
-var bedroomMinEl = initialBedroomMinEl;
-var bedroomMaxEl = initialBedroomMaxEl;
-var bathroomMinEl = initialBathroomMinEl;
-var bathroomMaxEl = initialBathroomMaxEl;
+let priceMinEl = initialPriceMinEl;
+let priceMaxEl = initialPriceMaxEl;
+let bedroomMinEl = initialBedroomMinEl;
+let bedroomMaxEl = initialBedroomMaxEl;
+let bathroomMinEl = initialBathroomMinEl;
+let bathroomMaxEl = initialBathroomMaxEl;
 
 
 // Store the local host as url
-let url = "https://raw.githubusercontent.com/HollaNotes/Project-3/main/users_data.json";
+let url = "https://raw.githubusercontent.com/HollaNotes/Project-3/main/static/data/realEstate_data.json";
 
 // Function to initialize the page
 function init() {
     d3.json(url).then(function (properties) {
 
         // Set to store unique cities
-        const uniqueCities = new Set();
+        let uniqueCities = new Set();
 
         // Loop through the dataset and add unique options to the dropdown
         properties.forEach(property => {
@@ -93,14 +93,14 @@ function updateTable(filteredProperties) {
     }
 
     let table = document.createElement('table');
-    const thead = document.createElement('thead');
-    const tbody = document.createElement('tbody');
+    let thead = document.createElement('thead');
+    let tbody = document.createElement('tbody');
 
     // Create table headers
-    const headers = ['Address', 'Price', 'Bedroom', 'Bathroom', 'House Size', 'City', 'Zip', 'Year built', 'House Type'];
-    const headerRow = document.createElement('tr');
+    let headers = ['Address', 'Price', 'Bedroom', 'Bathroom', 'House Size', 'City', 'Zip', 'Year built', 'House Type'];
+    let headerRow = document.createElement('tr');
     headers.forEach(headerText => {
-        const th = document.createElement('th');
+        let th = document.createElement('th');
         th.textContent = headerText;
         headerRow.appendChild(th);
     });
@@ -109,10 +109,10 @@ function updateTable(filteredProperties) {
 
     // Create table rows with filtered data
     filteredProperties.forEach(property => {
-        const row = document.createElement('tr');
-        const columns = ['streetaddress', 'price', 'bedrooms', 'bathrooms', 'buildingarea', 'city', 'zipcode', 'yearbuilt', 'hometype'];
+        let row = document.createElement('tr');
+        let columns = ['streetaddress', 'price', 'bedrooms', 'bathrooms', 'buildingarea', 'city', 'zipcode', 'yearbuilt', 'hometype'];
         columns.forEach(column => {
-            const td = document.createElement('td');
+            let td = document.createElement('td');
             td.textContent = property[column];
             row.appendChild(td);
         });
@@ -127,7 +127,7 @@ function updateTable(filteredProperties) {
 // Function to filter data and update the table
 function filterAndRefreshTable() {
     d3.json(url).then(function (properties) {
-        const filteredData = filterData(properties);
+        let filteredData = filterData(properties);
         updateTable(filteredData);
 
         // After updating the table, call the bargraph function
@@ -147,7 +147,7 @@ function bargraph(data) {
         x: prices,
         y: bedrooms,
         text: addresses, // Set custom hover text (addresses in this case)
-        hoverinfo: "text+y", // Show custom text and y-value in hover info
+        hoverinfo: "text+x", // Show custom text and y-value in hover info
         name: "table",
         type: "bar",
     };
@@ -172,19 +172,14 @@ function bargraph(data) {
         }
     };
 
-    // If the graph div already exists, update the existing graph
-    if (document.getElementById('bar')) {
-        Plotly.react('bar', plotData, layout);
-    } else {
-        // Create the Plotly plot
-        Plotly.newPlot("bar", plotData, layout);
-    }
+    // Update the existing graph or create a new one
+    Plotly.newPlot("bar", plotData, layout);
 }
 
-// Function to filter data and update the table
+// Function to filter data and update the table and graph
 function filterAndRefreshTable() {
     d3.json(url).then(function (properties) {
-        const filteredData = filterData(properties);
+        let filteredData = filterData(properties);
         updateTable(filteredData);
 
         // After updating the table, call the bargraph function

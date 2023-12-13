@@ -13,7 +13,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(myMap);
 
 // Use d3 to read the JSON file.
-  d3.json("https://raw.githubusercontent.com/HollaNotes/Project-3/main/users_data.json").then((data) => {
+  d3.json("https://raw.githubusercontent.com/HollaNotes/Project-3/main/static/data/realEstate_data.json").then((data) => {
     console.log("Data: ",data); // Output the array of data
     //Create array with Latitude and longitude
     // let coordinates = data.map(d => [d.latitude, d.longitude]);
