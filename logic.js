@@ -1,22 +1,30 @@
-let cityDropdown = document.getElementById('cityDropdown');
-let filterBtn = document.getElementById('filter-btn');
-let tableContainer = document.getElementById('filteredTableContainer');
+var cityDropdown = document.getElementById('cityDropdown');
+var filterBtn = document.getElementById('filter-btn');
+var tableContainer = document.getElementById('filteredTableContainer');
 
 // Initial values
-let initialPriceMinEl = parseInt(document.getElementById('price-min').value);
-let initialPriceMaxEl = parseInt(document.getElementById('price-max').value);
-let initialBedroomMinEl = parseInt(document.getElementById('bedroom-min').value);
-let initialBedroomMaxEl = parseInt(document.getElementById('bedroom-max').value);
-let initialBathroomMinEl = parseInt(document.getElementById('bathroom-min').value);
-let initialBathroomMaxEl = parseInt(document.getElementById('bathroom-max').value);
+var elPriceMin = document.getElementById('price-min');
+var elPriceMax = document.getElementById('price-max');
+var elBedroomMin = document.getElementById('bedroom-min');
+var elBedroomMax = document.getElementById('bedroom-max');
+var elBathroomMin = document.getElementById('bathroom-min');
+var elBathroomMax = document.getElementById('bathroom-max');
+
+// Initial values
+var initialPriceMinEl = parseInt(elPriceMin.value);
+var initialPriceMaxEl = parseInt(elPriceMax.value);
+var initialBedroomMinEl = parseInt(elBedroomMin.value);
+var initialBedroomMaxEl = parseInt(elBedroomMax.value);
+var initialBathroomMinEl = parseInt(elBathroomMin.value);
+var initialBathroomMaxEl = parseInt(elBathroomMax.value);
 
 // Current values
-let priceMinEl = initialPriceMinEl;
-let priceMaxEl = initialPriceMaxEl;
-let bedroomMinEl = initialBedroomMinEl;
-let bedroomMaxEl = initialBedroomMaxEl;
-let bathroomMinEl = initialBathroomMinEl;
-let bathroomMaxEl = initialBathroomMaxEl;
+var priceMinEl = initialPriceMinEl;
+var priceMaxEl = initialPriceMaxEl;
+var bedroomMinEl = initialBedroomMinEl;
+var bedroomMaxEl = initialBedroomMaxEl;
+var bathroomMinEl = initialBathroomMinEl;
+var bathroomMaxEl = initialBathroomMaxEl;
 
 
 // Store the local host as url
@@ -31,7 +39,7 @@ function init(){
 
     // Loop through the dataset and add unique options to the dropdown
     properties.forEach(property => {
-      const city = property.city;
+      let city = property.city;
 
       // Check if the city is not already added
       if (!uniqueCities.has(city)) {
@@ -43,7 +51,8 @@ function init(){
           cityDropdown.appendChild(option);
       };
   }); 
-  
+
+  // Call the table in the inital page
   filterAndRefreshTable();
 });
 };
@@ -51,7 +60,7 @@ function init(){
 
 
 function filterData(properties) {
-  const selectedCity = cityDropdown.value;
+  let selectedCity = cityDropdown.value;
   priceMinEl = parseInt(document.getElementById('price-min').value);
   priceMaxEl = parseInt(document.getElementById('price-max').value);
   bedroomMinEl = parseInt(document.getElementById('bedroom-min').value);
@@ -60,10 +69,10 @@ function filterData(properties) {
   bathroomMaxEl = parseInt(document.getElementById('bathroom-max').value);
 
   return properties.filter(item => {
-      const city = item.city;
-      const price = parseInt(item.price);
-      const bedroom = parseInt(item.bedrooms);
-      const bathroom = parseInt(item.bathrooms);
+      let city = item.city;
+      let price = parseInt(item.price);
+      let bedroom = parseInt(item.bedrooms);
+      let bathroom = parseInt(item.bathrooms);
 
       return (
           city === selectedCity &&
@@ -83,7 +92,7 @@ function filterData(properties) {
         return;
     }
 
-    const table = document.createElement('table');
+    let table = document.createElement('table');
     const thead = document.createElement('thead');
     const tbody = document.createElement('tbody');
 
@@ -118,6 +127,7 @@ function filterData(properties) {
 function filterAndRefreshTable() {
   d3.json(url).then(function(properties){
     const filteredData = filterData(properties);
+    console.log(filteredData);
     updateTable(filteredData);
 });
 };
@@ -130,7 +140,16 @@ function resetInitialValues() {
   bedroomMaxEl = initialBedroomMaxEl;
   bathroomMinEl = initialBathroomMinEl;
   bathroomMaxEl = initialBathroomMaxEl;
+
+  // Initial values
+  elPriceMin.value = initialPriceMinEl;
+  elPriceMax.value = initialPriceMaxEl;
+  elBedroomMin.value= initialBedroomMinEl;
+  elBedroomMax.value = initialBedroomMaxEl;
+  elBathroomMin.value = initialBathroomMinEl;
+  elBathroomMax.value = initialBathroomMaxEl;
 };
+
 
 // Add event listener to the button
 filterBtn.addEventListener('click', function () {
