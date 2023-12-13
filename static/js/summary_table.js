@@ -17,7 +17,7 @@ function summary_table() {
             let streetaddress = data.map(object => parseFloat(object.streetaddress));
             let countyid = data.map(object => parseFloat(object.countyid));
             let sqfoot = data.map(object => parseFloat(object.pricepersquarefoot));
-
+            let county = data.map(object => parseFloat(object.county));
 
             // Create trace for Plotly
             let trace1 = {
