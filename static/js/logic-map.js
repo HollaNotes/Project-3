@@ -15,6 +15,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Use d3 to read the JSON file.
   d3.json("static/data/data.json").then((data) => {
     console.log("Data: ",data); // Output the array of data
+    console.log("Address: ",data.streetaddress);
     //Create array with Latitude and longitude
     // let coordinates = data.map(d => [d.latitude, d.longitude]);
     let coordinates = data.slice(0, 20).map(d => [d.latitude, d.longitude]);
