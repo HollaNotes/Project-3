@@ -157,12 +157,15 @@ function bargraph(data) {
 
     // Apply a title to the layout and add axis labels
     let layout = {
-        title: "Bar Chart",
+        title: "CHANGE ME",
         margin: {
             l: 100,
             r: 100,
             t: 100,
             b: 100
+        },
+        font: {
+            family: "Arial, sans-serif"
         },
         xaxis: {
             title: 'Prices' // X-axis label
