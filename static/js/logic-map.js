@@ -25,21 +25,18 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       L.marker(coord)
       .bindPopup(`<br>${data.streetaddress}</br><br> ${data.zipcode}</br>`)
       .addTo(myMap);
-    // coordinates.forEach(d => {
-    //   let { latitude, longitude, streetaddress } = d;
-    //   L.marker([latitude, longitude]).addTo(map)
-    //   .bindPopup(streetaddress);
+
     });
   });
   
 // Function to update map markers based on filtered data
-function updateMapMarkers(filteredProperties) {
-    // Clear previous markers from the map
-    myMap.eachLayer(function (layer) {
-        if (layer instanceof L.Marker) {
-            myMap.removeLayer(layer);
-        }
-    });
+  function updateMapMarkers(filteredProperties) {
+      // Clear previous markers from the map
+      myMap.eachLayer(function (layer) {
+          if (layer instanceof L.Marker) {
+              myMap.removeLayer(layer);
+          }
+      });
 
     // Create markers for filtered properties
     filteredProperties.forEach(property => {
