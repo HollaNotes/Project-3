@@ -75,7 +75,7 @@ Our web application relies heavily on a filtering functions we created in order 
 
 
 **Graph**
--
+- Our graph was created with Plotly. This scatterplot shows the sqft of the listed homes against the price. We added hovertext to also show the property address and price. We limited the graph to the first 20 results to keep it consistent with the other visualizations. As we predicted, there seems to show a correlation between price an sqft of the home.
 
 
 
@@ -101,6 +101,7 @@ Our web application relies heavily on a filtering functions we created in order 
   - js:
     - Logic_filter&bar.js - This file holds the funtions for the graph and for our filtering and reseting logic
     - logic-map.js - This file holds the functions for the map and filtering and resetting functions
+
 **Remote files and locations**:
 - The remote files are almost identical to the static files, however they pull from the remote server.
 

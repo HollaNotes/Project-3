@@ -143,6 +143,7 @@ function bargraph(data) {
     let addresses = data.map(object => object.streetaddress); 
     let sqft = data.map(object => parseFloat(object.livingarea));
     let yearbuilt = data.map(object => parseFloat(object.yearbuilt));
+    
 
     // Create trace for Plotly with custom hover text
     let trace1 = {
@@ -152,11 +153,8 @@ function bargraph(data) {
         hoverinfo: "text+x",  // Show custom text and x-value in hover info
         mode: 'markers',
         type: 'scatter'
-    
-       
+          
     };
-
-   
 
     // Data array
     let plotData = [trace1];
@@ -184,9 +182,6 @@ function bargraph(data) {
     // Update the existing graph or create a new one
     Plotly.newPlot("bar", plotData, layout);
 }
-    // Update the existing graph or create a new one
-    Plotly.newPlot("bar", plotData, layout);
-}
 
 
 // Function to filter data and update the table and graph
@@ -202,7 +197,7 @@ function filterAndRefreshTable() {
 
 // Function to reset the initial values
 function resetInitialValues() {
-    // Resetting initial values logic
+   
 }
 
 // Add event listener to the button

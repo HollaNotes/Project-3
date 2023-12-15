@@ -153,11 +153,8 @@ function bargraph(data) {
         hoverinfo: "text+x",  // Show custom text and x-value in hover info
         mode: 'markers',
         type: 'scatter'
-    
-       
+          
     };
-
-
 
     // Data array
     let plotData = [trace1];
@@ -200,7 +197,7 @@ function filterAndRefreshTable() {
 
 // Function to reset the initial values
 function resetInitialValues() {
-    // Resetting initial values logic
+   
 }
 
 // Add event listener to the button
