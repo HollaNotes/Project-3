@@ -124,16 +124,7 @@ function updateTable(filteredProperties) {
 };
 
 
-// Function to filter data and update the table
-function filterAndRefreshTable() {
-    d3.json(url).then(function (properties) {
-        let filteredData = filterData(properties);
-        updateTable(filteredData);
 
-        // After updating the table, call the bargraph function
-        bargraph(filteredData);
-    });
-};
 
 // Function to create a bar graph
 function bargraph(data) {
@@ -197,6 +188,20 @@ function filterAndRefreshTable() {
 
 // Function to reset the initial values
 function resetInitialValues() {
+    // Resetting initial values logic
+    priceMinEl = initialPriceMinEl;
+    priceMaxEl = initialPriceMaxEl;
+    bedroomMinEl = initialBedroomMinEl;
+    bedroomMaxEl = initialBedroomMaxEl;
+    bathroomMinEl = initialBathroomMinEl;
+    bathroomMaxEl = initialBathroomMaxEl;
+    // Initial values
+    elPriceMin.value = initialPriceMinEl;
+    elPriceMax.value = initialPriceMaxEl;
+    elBedroomMin.value= initialBedroomMinEl;
+    elBedroomMax.value = initialBedroomMaxEl;
+    elBathroomMin.value = initialBathroomMinEl;
+    elBathroomMax.value = initialBathroomMaxEl;
    
 }
 

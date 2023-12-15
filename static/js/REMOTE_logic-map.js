@@ -52,7 +52,7 @@ function filterAndRefreshTable() {
     d3.json(url).then(function (properties) {
         const filteredData = filterData(properties);
         updateTable(filteredData);
-        updateMapMarkers(filteredData); // Update map markers based on filtered data
+        updateMapMarkers(filteredData); 
 
         // After updating the table and map markers, call the bargraph function
         bargraph(filteredData);
