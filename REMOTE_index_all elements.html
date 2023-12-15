@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Californa Houses Search</title>
+
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin="" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+    crossorigin="anonymous">
+
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+</head>
+
+<body>
+    <h1>Project 3: Californa Houses Search</h1>
+    <h2>Team: Noelle Watson, Vanessa Dumlao, Xuexuan Xu</h2>
+
+  <div class="row">
+    <div class="container"></div>
+    <header>
+      <h3>Filters</h3>
+      <!-- <div class="filterselect"><label for="cityDropdown">Select a City:</label> -->
+      <div class="filterselect"><button type="button" class="btn btn-primary">Select a City:</button>
+      <select id="cityDropdown" onchange="filterAndRefreshTable()">
+      </select>
+      </div>
+      
+      <!-- <div class="filterselect"><label for="price-min">Min Price($):</label> -->
+      <div class="filterselect"><button type="button" class="btn btn-primary">Min Price($)</button>
+      <input type="number" id="price-min" min="0" value="0">
+      </div>
+      
+      <!-- <div class="filterselect"><label for="price-max">Max Price($):</label> -->
+      <div class="filterselect"><button type="button" class="btn btn-primary">Max Price($)</button>
+      <input type="number" id="price-max" min="0" value="100000000">
+      </div>
+      
+      <!-- <div class="filterselect"><label for="bedroom-min">Min Bedroom:</label> -->
+      <div class="filterselect"><button type="button" class="btn btn-primary">Min Bedroom:</button>
+      <input type="number" id="bedroom-min" min="0" value="0">
+      </div>
+      
+      <!-- <div class="filterselect"><label for="bedroom-max">Max Bedroom:</label> -->
+      <div class="filterselect"><button type="button" class="btn btn-primary">Max Bedroom:</button>
+      <input type="number" id="bedroom-max" min="0" value="20">
+      </div>
+      
+      <!-- <div class="filterselect"><label for="bathroom-min">Min Bathroom:</label> -->
+      <div class="filterselect"><button type="button" class="btn btn-primary">Min Bathroom:</button>
+      <input type="number" id="bathroom-min" min="0" value="0">
+      </div>
+      
+      <!-- <div class="filterselect"><label for="bathroom-max">Max Bathroom:</label> -->
+      <div class="filterselect"><button type="button" class="btn btn-primary">Max Bathroom:</button>
+      <input type="number" id="bathroom-max" min="0" value="20">
+      </div>
+      
+      <!-- <button id="filter-btn">Apply</button> -->
+      <button id="filter-btn" type="button" class="btn btn-secondary">Apply</button>
+    </header>
+    
+    <div class="row"></div>  
+      <div class="scrollable-table" id="filteredTableContainer"></div>
+    
+    <div class="widget">      
+      <div id="map" style="height: 400px;"></div>
+      <div id="bar" style="height: 400px;"></div>     
+    </div>
+
+  </div>
+  
+  <!-- d3 code -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- plotly code -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Leaflet JavaScript code -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+
+  <!-- Bootstrap code -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+  rossorigin="anonymous"></script>
+  
+  <!-- <script src="static/js/summary_table.js"></script> -->
+  <script src="static/js/REMOTE_Logic_filter&Bar.js"></script>
+  
+  <!-- Map code -->
+  <script type="text/javascript" src="static/js/REMOTE_logic-map.js"></script>
+
+</body>
+
+</html>

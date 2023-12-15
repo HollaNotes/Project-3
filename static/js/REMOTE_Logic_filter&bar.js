@@ -28,7 +28,7 @@ let bathroomMaxEl = initialBathroomMaxEl;
 
 
 // Store the local host as url
-let url = "https://raw.githubusercontent.com/HollaNotes/Project-3/main/static/data/realEstate_data.json";
+let url = "http://127.0.0.1:5000/";
 
 // Function to initialize the page
 function init() {
@@ -143,7 +143,6 @@ function bargraph(data) {
     let addresses = data.map(object => object.streetaddress); 
     let sqft = data.map(object => parseFloat(object.livingarea));
     let yearbuilt = data.map(object => parseFloat(object.yearbuilt));
-    
 
     // Create trace for Plotly with custom hover text
     let trace1 = {
@@ -157,7 +156,7 @@ function bargraph(data) {
        
     };
 
-
+   
 
     // Data array
     let plotData = [trace1];
@@ -182,6 +181,9 @@ function bargraph(data) {
         }
     };
 
+    // Update the existing graph or create a new one
+    Plotly.newPlot("bar", plotData, layout);
+}
     // Update the existing graph or create a new one
     Plotly.newPlot("bar", plotData, layout);
 }
